@@ -62,7 +62,7 @@ void PlayGame(string word, string wordToGuess, int incorrectGuessCount, List<cha
     {
         string playerInput = Console.ReadLine().ToLower();
 
-        if(playerInput.Length != 1) {
+        if(playerInput.Length == 1) {
             char playerLetter = char.Parse(playerInput);
             playerUsedLetters.Add(playerLetter);
 
@@ -76,8 +76,9 @@ void PlayGame(string word, string wordToGuess, int incorrectGuessCount, List<cha
             {
                 incorrectGuessCount++;
             }
-
-            DrawCurrentGameState(true, incorrectGuessCount, wordToGuess, playerUsedLetters);
+            Console.Clear();
+            DrawCurrentGameState(false, incorrectGuessCount, wordToGuess, playerUsedLetters);
+            
             bool playerWins = CheckIfPlayerWins(wordToGuess);
             if (playerWins) {
                 Console.Clear();
@@ -106,7 +107,7 @@ while (true)
     string wordToGuess = new(Underscore, word.Length);
 
     int incorrectGuessCount = 0;
-    List<char> playerUsedLetters= new List<char>();
+    List<char> playerUsedLetters = new List<char>();
 
     DrawCurrentGameState(false, incorrectGuessCount, wordToGuess, playerUsedLetters);
     PlayGame(word, wordToGuess, incorrectGuessCount, playerUsedLetters);
