@@ -10,7 +10,6 @@ namespace HangmanGame.Classes
     {
         public string getRandomWord()
         {
-            string line = null;
             string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
             const string WordsFileName = "words.txt";
             string path = $@"{projectDirectory}\Utility\{WordsFileName}";
@@ -21,6 +20,15 @@ namespace HangmanGame.Classes
             int rngNumber = rng.Next(words.Length);
 
             return words[rngNumber];
+        }
+
+        public bool CheckIfSymbolIsContained(string word, char playerLetter)
+        {
+            if (!word.Contains(playerLetter)){
+                return false;
+            }
+
+            return true;
         }
     }
 }

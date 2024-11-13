@@ -412,6 +412,7 @@ namespace HangmanGame.Classes
                 Console.Clear();
             }
         }
+
     }
 }
 
