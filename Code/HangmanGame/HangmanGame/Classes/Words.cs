@@ -11,16 +11,16 @@ namespace HangmanGame.Classes
         public string getRandomWord()
         {
             string line = null;
-            StreamReader sr = new StreamReader("C:\\Sample.txt");
-            List<string> words = new List<string>();
+            string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
+            const string WordsFileName = "words.txt";
+            string path = $@"{projectDirectory}\Utility\{WordsFileName}";
 
-            while (line != null)
-            {
-                line = sr.ReadLine();
+            string[] words = File.ReadAllLines(path);
+            Random rng = new Random();
 
-            }
+            int rngNumber = rng.Next(words.Length);
 
-            return;
+            return words[rngNumber];
         }
     }
 }
