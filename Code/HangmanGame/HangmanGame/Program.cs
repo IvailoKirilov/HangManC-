@@ -1,2 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using HangmanGame.Classes;
+
 Console.WriteLine("Hello, World!");
+
+
+Words words = new Words();
+
+Console.WriteLine(words.getRandomWord());
