@@ -1,16 +1,25 @@
 ﻿
+using HangmanGame.Classes;
+
 void DrawCurrentGameState(bool inputIsInvalid, int incorrectGuess, string guessedWord, List<char> playerUsedLetters)
 {
 
 }
 
+
+PlayerGraphics playergraphics = new PlayerGraphics();
+
+playergraphics.printDeathAnimation();
+
 while (true)
 {
-    string word = GetRandomWord(Words);
-    string wordToGuess = new(Underscore, word.Lenght);
+
+    Words words = new Words();
+
+    string word = words.getRandomWord();
 
     int incorrectGuessCount = 0;
-    List<char> playerUsedLetters = new Lest<char>();
+  //  List<char> playerUsedLetters = new Lest<char>();
 
     
 }
