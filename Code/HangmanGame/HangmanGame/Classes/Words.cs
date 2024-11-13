@@ -30,5 +30,23 @@ namespace HangmanGame.Classes
 
             return true;
         }
+
+        public string getWordBasedOnDifficulty(int length)
+        {
+            string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
+            const string WordsFileName = "words.txt";
+            string path = $@"{projectDirectory}\Utility\{WordsFileName}";
+
+            string[] words = File.ReadAllLines(path);
+            Random rng = new Random();
+            int rngNumber = rng.Next(words.Length);
+
+            while (rngNumber != length)
+            {
+                rngNumber = rng.Next(words.Length);
+            }
+
+            return words[rngNumber];
+        }
     }
 }
